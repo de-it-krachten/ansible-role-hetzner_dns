@@ -1,0 +1,31 @@
+---
+
+- name: Get list of DNS zones
+  ansible.builtin.uri:
+    url: "{{ hetzner_zone_url }}"
+    method: GET
+    headers:
+      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+    return_content: yes
+    status_code: [ 200, 404 ]
+  register: zone_list
+
+- name: Find zone ID for target zone
+  ansible.builtin.set_fact:
+    hetzner_zone_id: "{{ zone_list.json.zones | json_query(qq) | first | default('') }}"
+  vars:
+    qq: "[?name=='{{ hetzner_zone_name }}'].id"
+
+- name: Create DNS zone
+  ansible.builtin.uri:
+    url: "{{ hetzner_zone_url }}"
+    method: POST
+    headers:
+      Content-Type: application/json
+      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+    status_code: 200
+    body_format: json
+    body:
+      name: "{{ hetzner_zone_name }}"
+      ttl: 60
+  when: hetzner_zone_id | length == 0

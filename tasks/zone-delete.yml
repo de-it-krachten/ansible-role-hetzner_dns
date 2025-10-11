@@ -1,0 +1,27 @@
+---
+
+- name: Get list of DNS zones
+  ansible.builtin.uri:
+    url: "{{ hetzner_zone_url }}"
+    method: GET
+    headers:
+      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+    return_content: yes
+    status_code: [ 200, 404 ]
+  register: zone_list
+
+- name: Find zone ID for target zone
+  ansible.builtin.set_fact:
+    hetzner_zone_id: "{{ zone_list.json.zones | json_query(qq) | first | default('') }}"
+  vars:
+    qq: "[?name=='{{ hetzner_zone_name }}'].id"
+
+- name: Delete DNS zone
+  ansible.builtin.uri:
+    url: "{{ hetzner_zone_url }}/{{ hetzner_zone_id }}"
+    method: DELETE
+    headers:
+      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+    status_code: 200
+  when: hetzner_zone_id | length > 0
+  register: x

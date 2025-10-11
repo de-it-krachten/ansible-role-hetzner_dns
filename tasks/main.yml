@@ -1,0 +1,23 @@
+---
+
+- name: Assertions
+  ansible.builtin.assert:
+    that:
+      - hetzner_dnsapi_token is defined
+      - hetzner_zone_name is defined
+
+- name: Zone deletion
+  ansible.builtin.include_tasks:
+    file: zone-delete.yml
+
+- name: Zone creation
+  ansible.builtin.include_tasks:
+    file: zone-create.yml
+
+- name: Zone forward
+  ansible.builtin.include_tasks:
+    file: zone-forward-transip.yml
+
+- name: Zone records
+  ansible.builtin.include_tasks:
+    file: zone-records.yml

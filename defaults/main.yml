@@ -1,0 +1,19 @@
+---
+
+# Hetzner API token
+# hetzner_dnsapi_token: your-token
+
+# Hetzner zone name
+# hetzner_zone_name: your-zone
+
+# Hetzner zone API
+hetzner_zone_url: "https://dns.hetzner.com/api/v1/zones"
+
+# DNS records
+hetzner_dns_records: []
+
+# Hetzner DNS servers
+hetzner_nameservers:
+  - hydrogen.ns.hetzner.com
+  - oxygen.ns.hetzner.com
+  - helium.ns.hetzner.de
