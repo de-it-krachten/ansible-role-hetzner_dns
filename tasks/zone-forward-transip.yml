@@ -1,0 +1,33 @@
+---
+
+- name: Convert Hetzner nameservers  # noqa jinja[spacing]
+  ansible.builtin.set_fact:
+    __hetzner_nameservers: >-
+      [
+        {%- for ns in hetzner_nameservers -%}
+        { "hostname": "{{ ns }}" },
+        {%- endfor -%}
+      ]
+
+- name: Get Transip nameservers
+  ansible.builtin.uri:
+    url: "https://api.transip.nl/v6/domains/{{ hetzner_zone_name }}/nameservers"
+    method: GET
+    headers:
+      Authorization: "Bearer {{ transip_token }}"
+      Content-Type: "application/json"
+    status_code: [ 200, 201, 204 ]
+  register: __transip
+
+- name: Set Transip -> Hetzner nameservers
+  ansible.builtin.uri:
+    url: "https://api.transip.nl/v6/domains/{{ hetzner_zone_name }}/nameservers"
+    method: PUT
+    headers:
+      Authorization: "Bearer {{ transip_token }}"
+      Content-Type: "application/json"
+    body_format: json
+    body:
+      nameservers: "{{ __hetzner_nameservers }}"
+    status_code: [ 200, 201, 204 ]
+  when: __transip['json']['nameservers'][0]['hostname'] != hetzner_nameservers[0]
