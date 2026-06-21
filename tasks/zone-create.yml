@@ -5,7 +5,8 @@
     url: "{{ hetzner_zone_url }}"
     method: GET
     headers:
-      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+      Content-Type: application/json
+      Authorization: "Bearer {{ hetzner_dnsapi_token }}"
     return_content: yes
     status_code: [ 200, 404 ]
   register: zone_list
@@ -22,7 +23,7 @@
     method: POST
     headers:
       Content-Type: application/json
-      Auth-API-Token: "{{ hetzner_dnsapi_token }}"
+      Authorization: "Bearer {{ hetzner_dnsapi_token }}"
     status_code: 200
     body_format: json
     body:
