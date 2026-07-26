@@ -4,7 +4,6 @@
 # ansible-role-hetzner_dns
 
 Setup DNS domain in Hetzner
-<basic role description>
 
 
 

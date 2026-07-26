@@ -6,7 +6,6 @@ generic:
   role_short: hetzner_dns
   role_description: |
     Setup DNS domain in Hetzner
-    <basic role description>
   collections: []
 
 # Github
