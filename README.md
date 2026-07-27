@@ -4,7 +4,6 @@
 # ansible-role-hetzner_dns
 
 Setup DNS domain in Hetzner
-<basic role description>
 
 
 
@@ -32,17 +31,14 @@ Supported platforms
 - AlmaLinux 8
 - AlmaLinux 9
 - AlmaLinux 10
-- SUSE Linux Enterprise 15<sup>1</sup>
-- SUSE Linux Enterprise 16<sup>1</sup>
-- openSUSE Leap 15
-- openSUSE Leap 16
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Debian 13 (Trixie)
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 42
+- Ubuntu 26.04 LTS
 - Fedora 43
+- Fedora 44<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -58,7 +54,7 @@ Note:
 # hetzner_zone_name: your-zone
 
 # Hetzner zone API
-hetzner_zone_url: "https://dns.hetzner.com/api/v1/zones"
+hetzner_zone_url: "https://api.hetzner.cloud/v1/zones"
 
 # DNS records
 hetzner_dns_records: []

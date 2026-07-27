@@ -2,7 +2,7 @@
 
 - name: Setup DNS records within zone
   community.dns.hetzner_dns_record:
-    api_token: "{{ hetzner_dnsapi_token }}"
+    hetzner_api_token: "{{ hetzner_dnsapi_token }}"
     zone_name: "{{ hetzner_zone_name }}"
     prefix: "{{ item.prefix | default(omit) }}"
     record: "{{ item.name | default(omit) }}"

@@ -6,23 +6,7 @@ generic:
   role_short: hetzner_dns
   role_description: |
     Setup DNS domain in Hetzner
-    <basic role description>
   collections: []
-
-# Supported platforms
-platforms:
-  sles15:
-    supported: true
-    ci: false
-  sles16:
-    supported: true
-    ci: false
-  opensuse15:
-    supported: true
-    ci: true
-  opensuse16:
-    supported: true
-    ci: true
 
 # Github
 github:

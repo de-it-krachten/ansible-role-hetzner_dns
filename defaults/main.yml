@@ -7,7 +7,7 @@
 # hetzner_zone_name: your-zone
 
 # Hetzner zone API
-hetzner_zone_url: "https://dns.hetzner.com/api/v1/zones"
+hetzner_zone_url: "https://api.hetzner.cloud/v1/zones"
 
 # DNS records
 hetzner_dns_records: []
