@@ -14,6 +14,7 @@ None
 
 #### Collections
 - community.dns
+- hetzner.hcloud
 
 ## Platforms
 
