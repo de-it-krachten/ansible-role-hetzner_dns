@@ -4,10 +4,12 @@
   community.dns.hetzner_dns_record:
     hetzner_api_token: "{{ hetzner_dnsapi_token }}"
     zone_name: "{{ hetzner_zone_name }}"
-    prefix: "{{ item.prefix | default(omit) }}"
-    record: "{{ item.name | default(omit) }}"
-    type: "{{ item.type }}"
-    ttl: "{{ item.ttl | default(omit) }}"
-    value: "{{ item.value }}"
-    state: "{{ item.state | default('present') }}"
+    prefix: "{{ record.prefix | default(omit) }}"
+    record: "{{ record.name | default(omit) }}"
+    type: "{{ record.type }}"
+    ttl: "{{ record.ttl | default(omit) }}"
+    value: "{{ record.value }}"
+    state: "{{ record.state | default('present') }}"
   loop: "{{ hetzner_dns_records }}"
+  loop_control:
+    loop_var: record

@@ -14,6 +14,7 @@ None
 
 #### Collections
 - community.dns
+- hetzner.hcloud
 
 ## Platforms
 
@@ -31,7 +32,6 @@ Supported platforms
 - AlmaLinux 8
 - AlmaLinux 9
 - AlmaLinux 10
-- Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Debian 13 (Trixie)
 - Ubuntu 22.04 LTS
