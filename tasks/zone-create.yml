@@ -3,6 +3,7 @@
 - name: Create DNS zone
   hetzner.hcloud.zone:
     name: "{{ hetzner_zone_name }}"
+    api_token: "{{ hetzner_dnsapi_token }}"
     mode: primary
     ttl: 60
     state: present
