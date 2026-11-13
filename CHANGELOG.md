@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-hetzner_dns/compare/v1.2.0...v1.3.0) (2026-11-13)
+
+
+### Bug Fixes
+
+* Add token for zone creation ([201ca7f](https://github.com/de-it-krachten/ansible-role-hetzner_dns/commit/201ca7f88ab9f86819a8f67c0d58c7375c2c5525))
+* Fix loop_var from item to record ([cc67234](https://github.com/de-it-krachten/ansible-role-hetzner_dns/commit/cc672346bae96a0ff896a96ed3b5a53264189e14))
+* Simplify zone creation ([3115de2](https://github.com/de-it-krachten/ansible-role-hetzner_dns/commit/3115de20fabb9e75690aaf1e0019b8df72a0ddd1))
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([28b4c00](https://github.com/de-it-krachten/ansible-role-hetzner_dns/commit/28b4c00ed94ff7d52d5979cedd736b7e741a01c2))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-hetzner_dns/compare/v1.1.0...v1.2.0) (2026-07-27)
 
 
